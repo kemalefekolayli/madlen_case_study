@@ -1,82 +1,139 @@
-# 🧙‍♂️ Madlen Chat - AI Assistant
+# 🧙‍♂️ Madlen Chat – AI Assistant
 
-Madlen Chat, kullanıcıların farklı Yapay Zeka modelleriyle (OpenRouter aracılığıyla) etkileşim kurmasını sağlayan, modern ve yerel olarak çalıştırılabilir bir web tabanlı sohbet uygulamasıdır.
+Madlen Chat, kullanıcıların **OpenRouter** aracılığıyla farklı Yapay Zeka (LLM & Vision) modelleriyle etkileşim kurmasını sağlayan, **modern**, **gözlemlenebilir** ve **yerel olarak çalıştırılabilir** bir web tabanlı sohbet uygulamasıdır.
 
-Bu proje, **Geliştirici Deneyimi (DevEx)**, **Sağlamlık (Robustness)** ve **Kullanıcı Deneyimi (UX)** odaklı olarak, Docker üzerinde tek bir komutla çalışacak şekilde tasarlanmıştır.
+Bu proje; **Geliştirici Deneyimi (DevEx)**, **Sağlamlık (Robustness)** ve **Kullanıcı Deneyimi (UX)** odağında tasarlanmış olup, **Docker üzerinde tek bir komutla** tüm sistemin ayağa kalkmasını hedefler.
 
-![Project Status](https://img.shields.io/badge/Status-Completed-success)
-![Docker](https://img.shields.io/badge/Docker-Ready-blue)
-![Tech Stack](https://img.shields.io/badge/Stack-Spring_Boot_%7C_React_%7C_MongoDB-green)
+---
 
-## ✨ Öne Çıkan Özellikler & Bonuslar
+## ✨ Öne Çıkan Özellikler
 
-Proje isterlerini tam karşılamanın ötesinde, kullanıcı deneyimini artıran ek özellikler geliştirilmiştir:
+### 🎨 Gelişmiş UI / UX
 
-* **🎨 Gelişmiş UI/UX:**
-    * **Dark/Light Mod:** Kullanıcı tercihine göre tema desteği.
-    * **Responsive Tasarım:** Mobil ve masaüstü uyumlu modern arayüz.
-    * **Anlık Geri Bildirimler:** Yükleniyor durumları, hata mesajları ve kullanıcı dostu uyarılar.
-* **👁️ Vision (Görsel) Desteği:**
-    * Uygulama, metin tabanlı modellerin yanı sıra **Görsel Analiz (Vision)** yeteneği olan modelleri de destekler (Örn: Gemini Vision, Llama Vision).
-    * *Not: Arayüzde sadece desteklenen modeller seçildiğinde resim yükleme butonu aktif olur.*
-* **🛡️ Sağlamlık (Robustness):**
-    * Backend hataları (Session limitleri, API hataları) kullanıcıya teknik kodlarla değil, anlaşılır Türkçe mesajlarla iletilir.
-    * Docker Healthcheck'leri ile servislerin sağlığı sürekli kontrol edilir.
-* **📊 Gözlemlenebilirlik (Observability):**
-    * **OpenTelemetry & Jaeger Entegrasyonu:** Tüm sistemin trace'leri (izleri) Jaeger üzerinden takip edilebilir.
+* **Dark / Light Mode** – Kullanıcı tercihine göre tema desteği
+* **Responsive Tasarım** – Mobil ve masaüstü uyumlu modern arayüz
+* **Anlık Geri Bildirimler** – Loading durumları, hata mesajları ve kullanıcı dostu uyarılar
+
+### 👁️ Vision (Görsel) Desteği *(Bonus)*
+
+* Vision yeteneği olan modellerle **resim yükleyerek soru sorma**
+* (Örn: Gemini Vision, Llama Vision)
+* Sadece **Vision destekleyen modeller** seçildiğinde resim yükleme butonu aktif olur
+
+### 🛡️ Sağlamlık (Robustness)
+
+* Backend kaynaklı hatalar (API limitleri, ağ problemleri vb.) kullanıcıya **teknik detaylara boğulmadan**, **anlaşılır Türkçe mesajlarla** gösterilir
+* **Docker healthcheck**’leri ile servislerin durumu sürekli izlenir
+
+### 📊 Gözlemlenebilirlik (Observability)
+
+* **OpenTelemetry entegrasyonu**
+* Backend API çağrıları ve kritik akışlar **Jaeger** üzerinden trace & span olarak izlenebilir
+
+---
 
 ## 🛠️ Teknoloji Yığını
 
-* **Backend:** Java 21, Spring Boot 3.4, MongoDB, OpenTelemetry
-* **Frontend:** React, TypeScript, Vite, Tailwind CSS
-* **Altyapı:** Docker & Docker Compose
+### Backend
 
-🚀 Kurulum ve Çalıştırma
+* Java 21
+* Spring Boot 3.4
+* MongoDB
+* OpenTelemetry
 
-Projeyi yerel makinenizde çalıştırmak için sadece **Docker**'ın yüklü olması yeterlidir.
+### Frontend
 
-1. Repoyu Klonlayın
+* React
+* TypeScript
+* Vite
+* Tailwind CSS
 
-git clone [https://github.com/KULLANICI_ADIN/REPO_ADIN.git](https://github.com/KULLANICI_ADIN/REPO_ADIN.git)
+### Altyapı
+
+* Docker
+* Docker Compose
+
+---
+
+## 🚀 Kurulum ve Çalıştırma
+
+Bu projeyi çalıştırmak için **yalnızca Docker** kurulu olması yeterlidir.
+
+### 1️⃣ Repoyu Klonlayın
+
+```bash
+git clone https://github.com/KULLANICI_ADIN/REPO_ADIN.git
 cd madlen-chat-app
-2. API Anahtarını Ayarlayın
-Ana dizinde .env isminde bir dosya oluşturun ve OpenRouter API anahtarınızı içine yapıştırın:
+```
 
-Kod snippet'i
+### 2️⃣ OpenRouter API Anahtarını Ayarlayın
 
-OPENROUTER_API_KEY=sk-or-v1-sizin-anahtariniz-buraya
-3. Başlatın
-Tek bir komutla tüm sistemi (Frontend, Backend, Veritabanı, Jaeger) ayağa kaldırın:
+Proje kök dizininde `.env` adında bir dosya oluşturun:
 
-Bash
+```env
+OPENROUTER_API_KEY=sk-or-v1-sizin-api-anahtariniz
+```
 
+> ⚠️ `.env` dosyası **güvenlik sebebiyle** GitHub reposuna dahil edilmez.
+
+### 3️⃣ Uygulamayı Başlatın
+
+Tek bir komutla tüm sistemi (Frontend, Backend, MongoDB, Jaeger) ayağa kaldırın:
+
+```bash
 docker-compose up --build
-İlk açılışta bağımlılıkların indirilmesi internet hızınıza bağlı olarak birkaç dakika sürebilir.
+```
 
-🖥️ Uygulamaya Erişim
-Sistem ayağa kalktıktan sonra tarayıcınızdan erişebilirsiniz:
+> ⏳ İlk çalıştırmada imajların indirilmesi birkaç dakika sürebilir.
 
-Sohbet Uygulaması: http://localhost:5173
+---
 
-Jaeger (Trace İzleme): http://localhost:16686
+## 🖥️ Erişim Adresleri
 
-Backend API Health: http://localhost:8080/api/health
+Sistem başarıyla ayağa kalktıktan sonra:
 
-📂 Proje Yapısı
+* 💬 **Sohbet Uygulaması**: [http://localhost:5173](http://localhost:5173)
+* 📊 **Jaeger (Trace İzleme)**: [http://localhost:16686](http://localhost:16686)
+* ❤️ **Backend Health Check**: [http://localhost:8080/api/health](http://localhost:8080/api/health)
+
+---
+
+## 📂 Proje Yapısı
+
+```text
 madlen-chat-app/
-├── docker-compose.yml   # Tüm servis orkestrasyonu
-├── .env                 # Konfigürasyon (Git'e atılmaz)
-├── madlen_demo/         # Backend Kaynak Kodları (Spring Boot)
+├── docker-compose.yml      # Tüm servislerin orkestrasyonu
+├── .env                    # Ortam değişkenleri (repo dışı)
+├── madlen_demo/            # Backend (Spring Boot)
 │   ├── src/
-│   └── Dockerfile       # Multi-stage build optimizasyonu
-└── madlen_ui/           # Frontend Kaynak Kodları (React)
-    ├── src/
-    └── Dockerfile       # Node.js alpine imajı
-📝 Notlar
-API Anahtarı: Güvenlik gereği .env dosyası repoya dahil edilmemiştir. Kendi anahtarınızı oluşturmanız gerekmektedir.
+│   └── Dockerfile          # Multi-stage build
+├── madlen_ui/              # Frontend (React + Vite)
+│   ├── src/
+│   └── Dockerfile          # Node.js Alpine
+└── README.md
+```
 
-Model Seçimi: Listelenen modellerden bazıları (Vision destekli olanlar) görsel yüklemeye izin verirken, diğerleri sadece metin tabanlıdır. Arayüz bunu otomatik algılar.
+---
 
-Geliştirici: Kemal Efe Kolaylı
+## 🔍 Teknik Kararlar & Gerekçeler
 
+* **Monorepo yapı**: Frontend ve Backend’in birlikte versiyonlanması ve tek komutla çalıştırılabilmesi
+* **Docker Compose**: Reviewer ve geliştiriciler için sıfır kurulum maliyeti
+* **OpenTelemetry**: Production-ready gözlemlenebilirlik yaklaşımı
+* **Vite + React**: Hızlı geliştirme ve modern frontend deneyimi
 
+---
+
+## 🧪 Model Seçimi Hakkında
+
+* Listelenen modeller **OpenRouter’ın ücretsiz modelleri** arasından seçilmiştir
+* Vision destekli modeller otomatik olarak algılanır
+* Metin tabanlı modellerde resim yükleme pasif hale gelir
+
+---
+
+## 👨‍💻 Geliştirici
+
+**Kemal Efe Kolaylı**
+
+> Bu proje, Madlen Case Study kapsamında geliştirilmiştir ve production-ready mimari, temiz kod ve kullanıcı deneyimi ön planda tutularak tasarlanmıştır.
