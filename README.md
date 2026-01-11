@@ -1,10 +1,3 @@
-2. Profesyonel README.md Dosyası
-Bu dosya, projenin vitrinidir. Senin için "Bonus"ları vurgulayan, kurulumu aptal basitliğinde anlatan (Developer Experience) ve özelliklerini öven harika bir şablon hazırladım.
-
-Bunu kopyala ve ana dizindeki README.md dosyasının içine yapıştır:
-
-Markdown
-
 # 🧙‍♂️ Madlen Chat - AI Assistant
 
 Madlen Chat, kullanıcıların farklı Yapay Zeka modelleriyle (OpenRouter aracılığıyla) etkileşim kurmasını sağlayan, modern ve yerel olarak çalıştırılabilir bir web tabanlı sohbet uygulamasıdır.
